@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Astrophotography Sky Viewer</title>
+</head>
+<body>
+  <h1>Check Sky Viewing Conditions</h1>
+  <form action="/check-weather" method="GET">
+    <label for="lat">Latitude:</label>
+    <input type="text" id="lat" name="lat" required>
+    <label for="lon">Longitude:</label>
+    <input type="text" id="lon" name="lon" required>
+    <button type="submit">Check</button>
+  </form>
+
+  <% if (weatherInfo) { %>
+    <h2>Weather Information for <%= weatherInfo.weatherData.place %></h2>
+    <p>Optimal for sky-viewing: <%= weatherInfo.isOptimal %></p>
+    <p>Temperature: <%= weatherInfo.weatherData.temp %> °C (<%= weatherInfo.weatherData.fahrenheit %> °F)</p>
+    <p>Feels Like: <%= weatherInfo.weatherData.feels_like %> °C</p>
+    <p>Description: <%= weatherInfo.weatherData.description %></p>
+    <p>Humidity: <%= weatherInfo.weatherData.humidity %>%</p>
+    <p>Visibility: <%= weatherInfo.weatherData.visibility %> meters</p>
+    <p>Cloud Cover: <%= weatherInfo.weatherData.cloudCover %>%</p>
+    <p>Sunrise: <%= weatherInfo.weatherData.sunrise %></p>
+    <p>Sunset: <%= weatherInfo.weatherData.sunset %></p>
+    <img src="<%= weatherInfo.weatherData.iconUrl %>" alt="Weather icon">
+  <% } %>
+</body>
+</html>
