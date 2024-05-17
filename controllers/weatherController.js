@@ -1,8 +1,14 @@
 const { getWeatherData, analyzeWeatherData } = require('../models/weatherModel');
 
+// Function to render the home page
+const renderHomePage = (req, res) => {
+  res.render('index', { weatherInfo: null });
+};
+
+// Function to check the weather
 const checkWeather = async (req, res) => {
   const { lat, lon } = req.query;
-  const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+  const apiKey = 'key'; // Replace with your actual API key
 
   try {
     const weatherData = await getWeatherData(lat, lon, apiKey);
@@ -13,4 +19,4 @@ const checkWeather = async (req, res) => {
   }
 };
 
-module.exports = { checkWeather };
+module.exports = { checkWeather, renderHomePage };

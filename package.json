@@ -2,10 +2,9 @@
   "name": "astrophot",
   "version": "1.0.0",
   "description": "an astrophotography web app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon index",
-    "server": "nodemon server",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
