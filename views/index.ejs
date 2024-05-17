@@ -1,30 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Astrophotography Sky Viewer</title>
-</head>
-<body>
-  <h1>Check Sky Viewing Conditions</h1>
-  <form action="/check-weather" method="GET">
-    <label for="lat">Latitude:</label>
-    <input type="text" id="lat" name="lat" required>
-    <label for="lon">Longitude:</label>
-    <input type="text" id="lon" name="lon" required>
-    <button type="submit">Check</button>
-  </form>
+<html lang="en">
 
-  <% if (weatherInfo) { %>
-    <h2>Weather Information for <%= weatherInfo.weatherData.place %></h2>
-    <p>Optimal for sky-viewing: <%= weatherInfo.isOptimal %></p>
-    <p>Temperature: <%= weatherInfo.weatherData.temp %> °C (<%= weatherInfo.weatherData.fahrenheit %> °F)</p>
-    <p>Feels Like: <%= weatherInfo.weatherData.feels_like %> °C</p>
-    <p>Description: <%= weatherInfo.weatherData.description %></p>
-    <p>Humidity: <%= weatherInfo.weatherData.humidity %>%</p>
-    <p>Visibility: <%= weatherInfo.weatherData.visibility %> meters</p>
-    <p>Cloud Cover: <%= weatherInfo.weatherData.cloudCover %>%</p>
-    <p>Sunrise: <%= weatherInfo.weatherData.sunrise %></p>
-    <p>Sunset: <%= weatherInfo.weatherData.sunset %></p>
-    <img src="<%= weatherInfo.weatherData.iconUrl %>" alt="Weather icon">
-  <% } %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Astrophotography Sky Viewer</title>
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <form action="/check-weather" method="GET">
+      <label for="lat">Latitude:</label>
+      <input type="text" id="lat" name="lat" required>
+      <label for="lon">Longitude:</label>
+      <input type="text" id="lon" name="lon" required>
+      <button type="submit">Check</button>
+    </form>
+
+    <% if (weatherInfo) { %>
+      <img src="<%= weatherInfo.weatherData.iconUrl %>" alt="Weather icon" id="weather-icon">
+      <div id="location"><%= weatherInfo.weatherData.place %></div>
+      <div class="desc"><%= weatherInfo.weatherData.description %></div>
+      <div class="weather">
+        <div class="c"><%= weatherInfo.weatherData.temp %> °C</div>
+        <div class="circle"></div>
+        <div class="f"><%= weatherInfo.weatherData.fahrenheit %> °F</div>
+      </div>
+      <div class="info">
+        <h4>Sunrise: <span class="sunrise"><%= weatherInfo.weatherData.sunrise %></span></h4>
+        <h4>Sunset: <span class="sunset"><%= weatherInfo.weatherData.sunset %></span></h4>
+      </div>
+    <% } %>
+  </div>
+  <script src="scripts.js"></script>
 </body>
+
 </html>
