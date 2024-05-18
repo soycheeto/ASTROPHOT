@@ -1,53 +1,120 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Lora', serif;
-  }
-  
-  .container {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: rgb(251, 242, 133);
-    background: radial-gradient(
-      circle,
-      rgba(251, 242, 133, 0.6334908963585435) 0%,
-      rgba(224, 196, 91, 0.8407738095238095) 35%,
-      rgba(230, 224, 113, 1) 100%
-    );
-  }
-  
-  .weather {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 15px 0;
-    font-size: 1.5rem;
-  }
-  
-  #location {
-    font-size: 3rem;
-    font-weight: 800;
-    font-style: italic;
-  }
-  
-  .desc {
-    font-size: 1.25rem;
-    text-transform: capitalize;
-  }
-  
-  .circle {
-    background-color: black;
-    border-radius: 50px;
-    height: 15px;
-    width: 15px;
-    margin: 0 15px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgb(251, 242, 133);
+  background: radial-gradient(
+    circle,
+    rgba(251, 242, 133, 0.6334908963585435) 0%,
+    rgba(224, 196, 91, 0.8407738095238095) 35%,
+    rgba(230, 224, 113, 1) 100%
+  );
+}
+
+.weather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 1.5rem;
+}
+
+#location {
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: italic;
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* Arrange children in a column */
+  align-items: center; /* Center children horizontally */
+}
+
+.input-group {
+  display: flex;
+  align-items: center; /* Align inputs and labels in the center vertically */
+  margin-bottom: 10px; /* Space between inputs and button */
+}
+
+
+input{
+  border: none;
+  height: 34px;
+  vertical-align: middle;
+  border-radius: 22px;
+  position:relative;
+  padding-left: 18px;
+  box-sizing: border-box;
+  margin-right: 5px;
+}
+
+form label {
+  margin-right: 10px; /* Space between label and next input */
+}
+
+form button {
+  display: block; /* Ensure the button takes its own line */
+  margin-top: 10px; /* Space above the button */
+}
+
+input::placeholder{
+  text-align: left;
+}
+
+button{
+  border: none;
+  vertical-align: middle;
+  border-radius: 22px;
+}
+
+
+
+.lat{
+  font-size: 2rem;
+  font-weight: 800;
+  font-style: italic;
+  vertical-align: middle;
+}
+.desc {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+
+.circle {
+  background-color: black;
+  border-radius: 50px;
+  height: 15px;
+  width: 15px;
+  margin: 0 15px;
+}
+
+.info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.optimal {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: green;
+}
+
+.not-optimal {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: red;
+}

@@ -15,10 +15,12 @@
 <body>
   <div class="container">
     <form action="/check-weather" method="GET">
-      <label for="lat">Latitude:</label>
-      <input type="text" id="lat" name="lat" required>
-      <label for="lon">Longitude:</label>
-      <input type="text" id="lon" name="lon" required>
+      <div class="input-group">
+      <input placeholder="Latitude" type="text" id="lat" name="lat" required>
+      <label for="lat" class="lat">°N,</label>
+      <input placeholder="Longitude" type="text" id="lon" name="lon" required>
+      <label for="lon" class="lat">°E</label>
+      </div>
       <button type="submit">Check</button>
     </form>
 
@@ -32,8 +34,14 @@
         <div class="f"><%= weatherInfo.weatherData.fahrenheit %> °F</div>
       </div>
       <div class="info">
+        <h4>Visibility: <%= weatherInfo.weatherData.visibility %> meters</h4>
         <h4>Sunrise: <span class="sunrise"><%= weatherInfo.weatherData.sunrise %></span></h4>
         <h4>Sunset: <span class="sunset"><%= weatherInfo.weatherData.sunset %></span></h4>
+        <% if (weatherInfo.isOptimal) { %>
+          <div class="optimal">The weather conditions are optimal for sky-viewing.</div>
+        <% } else { %>
+          <div class="not-optimal">The weather conditions are not optimal for sky-viewing.</div>
+        <% } %>
       </div>
     <% } %>
   </div>
