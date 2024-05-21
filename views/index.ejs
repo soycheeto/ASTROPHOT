@@ -2,18 +2,23 @@
 <html lang="en">
 
 <head>
+  <!--setting character encoding-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--instruct internet explorer to use its latest view rendering engine-->
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Astrophotography Sky Viewer</title>
+  <!--link to external stylesheet-->
   <link rel="stylesheet" href="/styles.css">
-  <!-- Google Fonts -->
+  <!--preconnect to Google Fonts to improve load time-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <!--connect to Lora regular and italic fonts-->
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
+    <!--form data will be sent to /check-weather, form data will be sent using a GET request-->
     <form action="/check-weather" method="GET">
       <div class="input-group">
       <input placeholder="Latitude" type="text" id="lat" name="lat" required>
@@ -24,9 +29,15 @@
       <button type="submit">Check</button>
     </form>
 
+    <!--check whether weatherInfo is truthy-->
     <% if (weatherInfo) { %>
+      <!--src attribute is dynamically set to the iconUrl property of the weatherData object within the weatherInfo object-->
       <img src="<%= weatherInfo.weatherData.iconUrl %>" alt="Weather icon" id="weather-icon">
+
+      <!--display place name from weatherInfo.weatherData-->
       <div id="location"><%= weatherInfo.weatherData.place %></div>
+
+      <!--display weather desc-->
       <div class="desc"><%= weatherInfo.weatherData.description %></div>
       <div class="weather">
         <div class="c"><%= weatherInfo.weatherData.temp %> °C</div>
@@ -43,9 +54,10 @@
           <div class="not-optimal">The weather conditions are not optimal for sky-viewing.</div>
         <% } %>
       </div>
+      <!--end of if block, if the condition (weatherInfo) is not met, the code block is skipped-->
     <% } %>
   </div>
-  <script src="scripts.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
