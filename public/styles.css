@@ -15,13 +15,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: rgb(251, 242, 133);
-  background: radial-gradient(
-    circle,
-    rgba(251, 242, 133, 0.6334908963585435) 0%,
-    rgba(224, 196, 91, 0.8407738095238095) 35%,
-    rgba(230, 224, 113, 1) 100%
-  );
 }
 
 .weather {
@@ -79,6 +72,7 @@ button{
   border: none;
   vertical-align: middle;
   border-radius: 22px;
+  padding: 8px;
 }
 
 
@@ -95,7 +89,7 @@ button{
 }
 
 .circle {
-  background-color: black;
+  background-color: #ffd494;
   border-radius: 50px;
   height: 15px;
   width: 15px;
@@ -110,11 +104,34 @@ button{
 .optimal {
   font-size: 1.5rem;
   font-weight: bold;
-  color: green;
+  color: #aaff94;
 }
 
 .not-optimal {
   font-size: 1.5rem;
   font-weight: bold;
-  color: red;
+  color: #ffbcc4;
+}
+
+
+.morning {
+
+  background: rgb(189,165,158);
+  background: radial-gradient(circle, rgba(189,165,158,1) 0%, rgba(208,177,161,1) 22%, rgba(219,184,163,1) 41%, rgba(238,214,186,1) 100%);  
+}
+
+.afternoon {
+  background: rgb(105,177,221);
+  background: radial-gradient(circle, rgba(105,177,221,1) 0%, rgba(156,185,222,1) 30%, rgba(239,211,187,1) 100%);
+}
+
+.evening {
+  background: rgb(151,113,139);
+  background: radial-gradient(circle, rgba(151,113,139,1) 0%, rgba(213,161,156,1) 50%, rgba(250,230,184,1) 100%);
+}
+
+.night {
+  color: #ffd494;
+  background: rgb(36,42,90);
+  background: radial-gradient(circle, rgba(36,42,90,1) 0%, rgba(71,84,129,1) 49%, rgba(121,132,247,1) 100%);
 }
