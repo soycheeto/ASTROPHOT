@@ -46,7 +46,7 @@ const analyzeWeatherData = (data) => {
   const sunsetGMT = new Date(sunset * 1000);
 
   // Analyze weather conditions for optimal sky-viewing
-  const isOptimal = visibility > 9500 && humidity < 80; // Example criteria
+  const isOptimal = visibility > 9500 && humidity < 80; 
 
   //returns and object of restructured relevant data
   return {
